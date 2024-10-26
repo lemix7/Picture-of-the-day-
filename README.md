@@ -1,51 +1,63 @@
-# React + TypeScript + Vite
+# NASA Astronomy Picture of the Day  🔭
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application that displays NASA's Astronomy Picture of the Day (APOD) along with its description. The application fetches data directly from NASA's APOD API to showcase stunning astronomical images and their scientific explanations.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Displays the current Astronomy Picture of the Day
+* Shows the title and detailed description of the astronomical image
+* Responsive design for both desktop and mobile viewing
+* Loading state while fetching the image
+* Error handling for API failures
+* Support for both images and videos (when APOD is a video)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/nasa-apod-viewer.git
+   cd nasa-apod-viewer
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory and add your NASA API key:
+   ```plaintext
+   REACT_APP_NASA_API_KEY=your_api_key_here
+   ```
+
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+
+## Environment Variables
+
+The following environment variables are required:
+
+* `REACT_APP_NASA_API_KEY`: Your NASA API key
+
+## API Usage
+
+The application uses NASA's APOD API. Here's an example of the API endpoint:
+
+```plaintext
+https://api.nasa.gov/planetary/apod?api_key=YOUR_API_KEY
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+The API returns data in the following format:
+```json
+{
+  "date": "2024-10-26",
+  "explanation": "Description of the astronomical image...",
+  "hdurl": "https://apod.nasa.gov/apod/image/high_res_image.jpg",
+  "media_type": "image",
+  "service_version": "v1",
+  "title": "Title of the Image",
+  "url": "https://apod.nasa.gov/apod/image/standard_res_image.jpg"
+}
 ```
-# Picture-of-the-day-
