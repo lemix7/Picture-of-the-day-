@@ -1,14 +1,17 @@
 import { useEffect , useState } from "react"
 import Nav from "./Nav"
 type PictureProps = {
-    imgUrl: string
+    lowResUrl: string;
+    highResUrl: string;
     date: string
     copyRight: string
     imgDesc: string
 }
 
-const Picture = ({imgUrl,date,copyRight,imgDesc}:PictureProps) => {
+const Picture = ({lowResUrl,highResUrl,date,copyRight,imgDesc}:PictureProps) => {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
+
+    const [imgUrl, setImgUrl] = useState<string>(lowResUrl)
 
     useEffect(() => {
 
@@ -23,6 +26,16 @@ const Picture = ({imgUrl,date,copyRight,imgDesc}:PictureProps) => {
         }
         
     },[])
+
+    useEffect (() => {
+        if(!highResUrl) return
+
+        const highResImage = new Image()
+        highResImage.src = highResUrl
+        highResImage.onload = () => {
+            setImgUrl(highResUrl)
+        }
+    },[highResUrl])
 
 
   return (

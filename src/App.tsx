@@ -37,7 +37,8 @@ function App() {
     <div className="bg-black h-full">
 
       <Picture 
-      imgUrl={astroInfo.url}
+      lowResUrl={astroInfo.url}
+      highResUrl={astroInfo.hdurl}
        imgDesc={astroInfo.explanation || ""}
        date={astroInfo.date || ""}
        copyRight={astroInfo.copyright || "unkonwn"}
