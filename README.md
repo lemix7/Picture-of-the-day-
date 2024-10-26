@@ -2,14 +2,18 @@
 
 A web application that displays NASA's Astronomy Picture of the Day (APOD) along with its description. The application fetches data directly from NASA's APOD API to showcase stunning astronomical images and their scientific explanations.
 
+<img width="1686" alt="Screenshot 2024-10-26 at 8 17 59 PM" src="https://github.com/user-attachments/assets/f46bb9b4-e7cf-45bc-a0f6-c81ba3b9e65f"><br>
+
+
 ## Features
+
 
 * Displays the current Astronomy Picture of the Day
 * Shows the title and detailed description of the astronomical image
 * Responsive design for both desktop and mobile viewing
 * Loading state while fetching the image
 * Error handling for API failures
-* Support for both images and videos (when APOD is a video)
+
 
 
 ## Installation
