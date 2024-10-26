@@ -37,6 +37,7 @@ function App() {
     <div className="bg-black h-full">
 
       <Picture 
+      title={astroInfo.title || ""}
       lowResUrl={astroInfo.url}
       highResUrl={astroInfo.hdurl}
        imgDesc={astroInfo.explanation || ""}

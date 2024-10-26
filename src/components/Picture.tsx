@@ -6,9 +6,10 @@ type PictureProps = {
     date: string
     copyRight: string
     imgDesc: string
+    title:string
 }
 
-const Picture = ({lowResUrl,highResUrl,date,copyRight,imgDesc}:PictureProps) => {
+const Picture = ({lowResUrl,highResUrl,date,copyRight,imgDesc,title}:PictureProps) => {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
     const [imgUrl, setImgUrl] = useState<string>(lowResUrl)
@@ -40,6 +41,7 @@ const Picture = ({lowResUrl,highResUrl,date,copyRight,imgDesc}:PictureProps) => 
 
   return (
     <div className="w-full relative h-[700px] md:h-[800px] lg:h-screen   " style={{
+        backgroundColor: "black",
         backgroundImage: `url(${imgUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -48,11 +50,13 @@ const Picture = ({lowResUrl,highResUrl,date,copyRight,imgDesc}:PictureProps) => 
       <Nav/>
         
     {windowWidth > 1020 && <div className="w-[700px] absolute bottom-11 left-11 bg-black opacity-70 py-6 px-4 rounded-lg"> 
+
+        <h2 className="text-white pop text-xl font-semibold mb-6">{title}</h2> 
         <p className="text-white pop ">{imgDesc}</p>
         
-        <div className="text-white w-full flex justify-between items-center mt-7 font-semibold pop ">
-            <span>{copyRight}</span>
-            <h4>{date}</h4>
+        <div className="text-white w-full flex justify-between items-center leading-6 mt-7 font-semibold pop ">
+            <span className="text-xs">{copyRight}</span>
+            <h4 className="text-xs">{date}</h4>
         </div>
         </div>}
         
