@@ -37,18 +37,19 @@ function App() {
     <div className="bg-black h-full">
 
       <Picture 
-      title={astroInfo.title || ""}
+      title={astroInfo.title || "...Loading"}
       lowResUrl={astroInfo.url}
       highResUrl={astroInfo.hdurl}
-       imgDesc={astroInfo.explanation || ""}
+       imgDesc={astroInfo.explanation || "...Loading"}
        date={astroInfo.date || ""}
-       copyRight={astroInfo.copyright || "unkonwn"}
+       copyRight={astroInfo.copyright || "Loading"}
        />
 
     {windowWidth < 1020 && <PicDesc 
-       imgDesc={astroInfo.explanation || ""}
+       imgDesc={astroInfo.explanation || "...Loading"}
        date={astroInfo.date || ""}
-       copyRight={astroInfo.copyright || "unkonwn"}/>}
+       copyRight={astroInfo.copyright || "loading"}
+       title={astroInfo.title || "...loading"}/>}
 
     </div>
 
